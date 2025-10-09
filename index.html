@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>work</title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/vuetify@3.6.11/dist/vuetify.min.css'>
+<link rel='stylesheet' href='https://unpkg.com/@mdi/font@6.x/css/materialdesignicons.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'><link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="
+https://cdn.jsdelivr.net/npm/ityped@1.0.3/dist/index.min.js
+"></script>
+</head>
+
+<body>
+  
+
+<div id="app">
+  	<v-app>
+       <div class="header">
+    			<div class ="logo header-left">
+      				<p>MeigenGet!</p>
+      				<!--左上のロゴ -->
+    			</div><!---header-leftとじ --->
+  
+    			<div class ="header-title">
+      				<h1></h1>
+    			</div><!---header-titleとじ --->
+    			<div class = "menu header-right">
+      				<v-row class="d-flex justify-end pa-4">
+        				<v-menu>
+          					<template v-slot:activator="{ props: activatorProps }">
+        						<v-btn text="★" v-bind="activatorProps">
+							</v-btn>
+   				   		</template>
+
+      <v-list>
+        <v-list-item @click="coleClick">
+          <v-list-item-title>お気に入り</v-list-item-title>
+        </v-list-item>
+
+        <v-list-item @click="onClick">
+          <v-list-item-title>お問い合わせ</v-list-item-title>
+        </v-list-item>
+
+      </v-list>
+  					  </v-menu>
+  				</v-row>
+   			 </div><!---header-rightとじ --->
+  
+   		</div><!---headerとじ --->
+       
+      
+<div v-if = "page === 'a'">
+  
+ 
+<div class ="main">
+  
+  <div class = "mainbtn">
+    <v-btn @click="mainAClick" prepend-icon="$vuetify">
+  名言を授かる
+</v-btn>
+    
+  </div><!---mainbtnとじ --->
+</div><!---mainとじ --->
+
+
+
+<div class = "footer">
+  <div class = "footertext">
+    <p>prototype</p>
+
+    
+  </div><!---footertextとじ --->
+</div><!---footerとじ --->
+ 
+</div><!---if1とじ --->
+ 
+<div v-if = "page === 'b'">
+  
+  <div class = "mainb">
+  
+  <div class = "mainbtxt">
+  <h1>{{meigen}} </h1>
+  <h2> {{auther}}</h2>
+    
+    
+   <p v-if = "loading" class="loadtxt">読み込み中</p>
+      <p v-if = "loadfail" class="loadtxt">時間をおいてから試してください</p>
+      </div> <!---mainbtxtとじ--->  
+      
+    
+      <v-btn class="btnb" @click="onemoreClick" prepend-icon="$vuetify">
+  もう一度授かる
+</v-btn>
+  
+   <v-btn class="btnb" @click="mainBClick" prepend-icon="$vuetify">
+  ホームへもどる
+</v-btn>
+    
+<v-btn class="btnb" @click="favoClick" prepend-icon="$vuetify">
+  お気に入り登録
+</v-btn> 
+        
+        
+      
+     </div> <!---mainbとじ--->
+</div><!---if2とじ --->
+      
+
+<div v-if = "page === 'c'">  
+  
+  <li v-for = "fav in favs" class = "favli">
+    <h2>{{fav.meigen}}</h2>
+    <h3>{{fav.auther}}</h3>
+  </li>
+  
+ <v-btn @click="mainBClick" prepend-icon="$vuetify">
+  ホームへもどる
+</v-btn> 
+  
+  <v-btn @click="delfavClick" prepend-icon="$vuetify">
+  削除する
+  </v-btn>
+      
+      
+</v-btn> 
+  
+ </div><!---if3とじ --->
+    
+      
+  		
+  </v-app>
+</div><!---idappとじ --->
+</body>
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+<script src='https://unpkg.com/vue-router@4/dist/vue-router.global.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vuetify@3.6.11/dist/vuetify.min.js'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>
