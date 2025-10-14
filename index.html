@@ -27,6 +27,7 @@ https://cdn.jsdelivr.net/npm/ityped@1.0.3/dist/index.min.js
        <div class="header">
     			<div class ="logo header-left">
       				<p>MeigenGet!</p>
+            <!--animate.cssをつけてみたい-->
       				<!--左上のロゴ -->
     			</div><!---header-leftとじ --->
   
@@ -105,12 +106,11 @@ https://cdn.jsdelivr.net/npm/ityped@1.0.3/dist/index.min.js
   ホームへもどる
 </v-btn>
     
-<v-btn class="btnb" @click="favoClick" prepend-icon="$vuetify">
+<v-btn class="btnb" @click = "favp" prepend-icon="$vuetify">
   お気に入り登録
 </v-btn> 
         
-        
-      
+
      </div> <!---mainbとじ--->
 </div><!---if2とじ --->
       
@@ -130,11 +130,29 @@ https://cdn.jsdelivr.net/npm/ityped@1.0.3/dist/index.min.js
   削除する
   </v-btn>
       
-      
-</v-btn> 
+  <!--- 
+<v-btn @click = "debag" >
+ 　デバッグ用
+</v-btn>        
+     --->
   
  </div><!---if3とじ --->
     
+  
+  
+  
+  
+  <!---ページaでランダムなたかさと逆から出てくるときうすくなるのと、全部だすようにする。-->
+  <div v-if = "page === 'a'">
+      <p v-for="(fav, index) in favs"
+    :key="index"
+     class="backtext"
+    :style="{ left: position[index] + 'px', top: positiont[index] + 'px' }"
+  >
+   {{ fav.meigen }}
+</p>
+  </div>
+  
       
   		
   </v-app>

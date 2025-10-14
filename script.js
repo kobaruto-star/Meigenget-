@@ -1,4 +1,4 @@
-const { createApp, ref } = Vue;
+const { createApp, ref ,onMounted} = Vue;
   // Vuetify を取り出し
   const { createVuetify } = Vuetify;
   // Vuetify を作ってプラグイン登録する
@@ -74,25 +74,72 @@ console.log(`エラー1です(${miscount}回目)`);
       
       const favs = ref([]);
       
+      
       function favoClick(){
         console.log("お気に入りを押した")
         favs.value.push({
           meigen:meigen.value,
           auther:auther.value
         }) 
-        console.log(fav);
+        console.log(favs.value[0].meigen);
       }
       
       const  delfav = ref("false")
       
       function delfavClick(){
         favs.value = [];
+      position.value = [];
+      positiont.value = [];
+      favnum = -1;
         console.log("削除しました");
       }
       
+      const op = ref(0);
+      
+      console.log(window.innerWidth);
+      
+      let position = ref([]);
+      let positiont = ref([]);
+      let favnum = -1;
+      
+      function positiongo(){
+        
+        favnum ++;
+        
+        console.log("移動開始")
+        position.value[favnum] = Math.random() * 920 - 460; 
+        //横のランダム開始位置
+        
+        
+      positiont.value[favnum] =Math.random()* 270 + 50;
+      console.log(positiont);
+        //縦のランダム配置
+        
+        const intervalnum = favnum;
+        const inwidth = window.innerWidth;
+        
+        op.value = 1;
+        setInterval(() =>{
+        position.value[intervalnum]++;
+          if (position.value[intervalnum] > inwidth){
+            op.value = 0;
+            position.value[intervalnum] = -inwidth;
+          }              
+      }, 30) }
+      
+      function favp() {
+        favoClick();
+        positiongo();
+      }
       
       
-    return{ onClick,mainAClick,mainBClick,page ,coleClick,meigen,auther,onemoreClick,loading,loadfail,favoClick,favs,delfavClick};    
+      //function debag(){
+        //console.log("きてるよ");
+        //console.log(positiont.value[favnum]);
+      
+      //}
+      
+    return{ onClick,mainAClick,mainBClick,page ,coleClick,meigen,auther,onemoreClick,loading,loadfail,favoClick,favs,delfavClick,position,op,positiont,favp};    
     }
 
   }).use(vuetify).mount('#app');
