@@ -22,7 +22,7 @@ https://cdn.jsdelivr.net/npm/ityped@1.0.3/dist/index.min.js
 <body>
   
 
-<div id="app">
+<div id="app" v-cloak>
   	<v-app>
        <div class="header">
     			<div class ="logo header-left">
@@ -38,16 +38,17 @@ https://cdn.jsdelivr.net/npm/ityped@1.0.3/dist/index.min.js
       				<v-row class="d-flex justify-end pa-4">
         				<v-menu>
           					<template v-slot:activator="{ props: activatorProps }">
-        						<v-btn text="★" v-bind="activatorProps">
+        						<v-btn v-bind="activatorProps" prepend-icon="mdi-menu" >
+                      menu
 							</v-btn>
    				   		</template>
 
       <v-list>
-        <v-list-item @click="coleClick">
+        <v-list-item @click="coleClick" prepend-icon="mdi-star" size="x-small">
           <v-list-item-title>お気に入り</v-list-item-title>
         </v-list-item>
 
-        <v-list-item @click="onClick">
+        <v-list-item @click="onClick" prepend-icon="mdi-information" size="x-small">
           <v-list-item-title>お問い合わせ</v-list-item-title>
         </v-list-item>
 
@@ -76,7 +77,7 @@ https://cdn.jsdelivr.net/npm/ityped@1.0.3/dist/index.min.js
 
 <div class = "footer">
   <div class = "footertext">
-    <p>prototype</p>
+    <p>v1.0</p>
 
     
   </div><!---footertextとじ --->
@@ -98,15 +99,15 @@ https://cdn.jsdelivr.net/npm/ityped@1.0.3/dist/index.min.js
       </div> <!---mainbtxtとじ--->  
       
     
-      <v-btn class="btnb" @click="onemoreClick" prepend-icon="$vuetify">
+      <v-btn class="btnb" @click="onemoreClick" prepend-icon="mdi-circle">
   もう一度授かる
 </v-btn>
   
-   <v-btn class="btnb" @click="mainBClick" prepend-icon="$vuetify">
+   <v-btn class="btnb" @click="mainBClick" prepend-icon="mdi-home">
   ホームへもどる
 </v-btn>
     
-<v-btn class="btnb" @click = "favp" prepend-icon="$vuetify">
+<v-btn class="btnb" @click = "favp" prepend-icon="mdi-star">
   お気に入り登録
 </v-btn> 
         
@@ -122,11 +123,11 @@ https://cdn.jsdelivr.net/npm/ityped@1.0.3/dist/index.min.js
     <h3>{{fav.auther}}</h3>
   </li>
   
- <v-btn @click="mainBClick" prepend-icon="$vuetify">
+ <v-btn @click="mainBClick" prepend-icon="mdi-home">
   ホームへもどる
 </v-btn> 
   
-  <v-btn @click="delfavClick" prepend-icon="$vuetify">
+  <v-btn @click="delfavClick" prepend-icon="mdi-alert">
   削除する
   </v-btn>
       

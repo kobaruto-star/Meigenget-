@@ -1,3 +1,7 @@
+[v-cloak]{
+ display:none; 
+}
+
 body{
   text-align:center;
   
@@ -131,4 +135,8 @@ border-radius: 55px;
   position:absolute;
   white-space: nowrap;
   opacity:0.6;
+}
+
+.footertext{
+  float:right;
 }
